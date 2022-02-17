@@ -1,21 +1,25 @@
 const express = require("express");
-const app = express();
+const { ApolloServer } = require("apollo-server-express");
+const http = require("http");
 const port = 3001;
-const axios = require("axios");
 
-async function makeGetRequest() {
-    let res = await axios.get("https://swapi.dev/api/films/1");
+const typeDefs = require("./graphql/schema");
+const resolvers = require("./graphql/resolvers");
 
-    let data = res.data;
-    console.log(data.title);
+async function startApolloServer(typeDefs, resolvers) {
+    const app = express();
+    const httpServer = http.createServer(app);
+    const server = new ApolloServer({
+        typeDefs,
+        resolvers,
+    });
+
+    await server.start();
+    server.applyMiddleware({ app });
+    await new Promise((resolve) => httpServer.listen({ port: port }, resolve));
+    console.log(
+        `🚀 Server ready at http://localhost:${port + server.graphqlPath}`
+    );
 }
 
-makeGetRequest();
-
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
-});
+startApolloServer(typeDefs, resolvers);
