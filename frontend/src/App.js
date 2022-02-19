@@ -1,8 +1,10 @@
-import logo from "./logo.svg";
 import "./App.scss";
 import { ApolloProvider } from "@apollo/client";
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
-import Test from "./components/Test";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import FilmList from "./components/FilmList";
+import Character from "./components/Character/Character";
+import Film from "./components/Film/Film";
 
 const httpLink = createHttpLink({
     uri: process.env.REACT_APP_SERVER_URL,
@@ -21,18 +23,20 @@ function App() {
     return (
         <ApolloProvider client={client}>
             <div className="App">
-                <Test></Test>
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
+                <Router>
+                    <h1 className="App-header">STAR WARS</h1>
+                    <div className="content">
+                        <Routes>
+                            <Route path="/" element={<FilmList />} />
+                            <Route path="film/:filmId" element={<Film />} />
+                            <Route
+                                path="character/:characterId"
+                                element={<Character />}
+                            />
+                            <Route path="/*" element={<FilmList />} />
+                        </Routes>
+                    </div>
+                </Router>
             </div>
         </ApolloProvider>
     );
