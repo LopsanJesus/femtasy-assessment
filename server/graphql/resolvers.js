@@ -1,13 +1,16 @@
-const axios = require("axios");
+const { swapi } = require("../apiLinks");
+const { getFilms, getFilm, getCharacter } = require("./helpers");
 
 const resolvers = {
     Query: {
         films: async () => {
-            let films = await axios.get("https://swapi.dev/api/films");
-
-            return (filmsTitles = films.data.results.map((film) => {
-                return { title: film.title };
-            }));
+            return getFilms(swapi.films);
+        },
+        film: async (_, { id }) => {
+            return getFilm(swapi.films + id);
+        },
+        character: async (_, { id }) => {
+            return getCharacter(swapi.characters + id);
         },
     },
 };
