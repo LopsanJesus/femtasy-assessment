@@ -1,14 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Picture from "../Picture/Picture";
 import "./FilmListItem.scss";
 
 const FilmListItem = ({ film }) => {
-    const handleOpenFilm = () => {};
+    let navigate = useNavigate();
+
+    const handleOpenFilm = () => {
+        navigate("/film/" + film.id);
+    };
 
     return (
         <li className="FilmListItem" onClick={handleOpenFilm}>
             <h3>{film.title}</h3>
-            <p>Director: {film.director}</p>
-            <img src={film.cover} />
+            <Picture src={film.cover} size="big" />
         </li>
     );
 };
