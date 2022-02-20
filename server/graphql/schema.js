@@ -13,8 +13,8 @@ const typeDefs = gql`
         name: String!
         gender: String
         homeworld: String
-        description: CharacterDescription
         picture: String
+        description: CharacterDescription
     }
 
     type CharacterDescription {
