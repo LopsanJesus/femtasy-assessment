@@ -2,6 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
     type Film {
+        id: Int!
         title: String!
         director: String
         description: String
@@ -10,6 +11,7 @@ const typeDefs = gql`
     }
 
     type Character {
+        id: Int!
         name: String!
         gender: String
         homeworld: String
