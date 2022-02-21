@@ -1,5 +1,5 @@
 const mockedDescription =
-    "A sdfskdfj\n sdfhsjkdhfkjsadhfsjdf\n dsjfk sdkjfksdjfsd lfkjsafjs\nsdfsdfsd fsdfs";
+    "Captain. Yes, sir? Tell them we wish to board at once. With all due respect, the Ambassadors for the Supreme Chancellor wish to board immediately. Yes, yes, of course, as you know, our blockade is perfectly legal, and we'd be happy to receive the Ambassador. The hyperdrive is leaking. We'll have to land somewhere to refuel and repair the ship. Here, Master. Tatooine, It's small, out of the way, poor. The Trade Federation has no presence there.";
 
 const mockedCharacters = [
     {
