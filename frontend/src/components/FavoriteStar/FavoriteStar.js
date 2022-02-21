@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import "./FavoriteStar.scss";
 
-const FavoriteStar = ({ onFavClick }) => {
-    const [isFavorite, setIsFavorite] = useState(false);
+const FavoriteStar = ({ initialValue, onFavClick }) => {
+    const [isFavorite, setIsFavorite] = useState(initialValue);
 
     const markAsFavorite = () => {
-        if (!isFavorite) {
-            setIsFavorite(true);
-            onFavClick();
-        }
+        setIsFavorite(!isFavorite);
+        onFavClick(!isFavorite);
     };
     return (
         <div
-            className="absolute z-10 text-3xl right-8"
+            className="text-3xl cursor-pointer md:text-6xl"
             onClick={markAsFavorite}
         >
             {isFavorite ? (
-                <span className="text-yellow-500 drop-shadow-md">&#9733;</span>
+                <span className="text-star drop-shadow-md">&#9733;</span>
             ) : (
                 <span>&#9734;</span>
             )}

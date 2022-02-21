@@ -17,11 +17,14 @@ const FilmList = () => {
                 <ErrorMessage>Server error</ErrorMessage>
             ) : (
                 <div>
-                    <ul>
+                    <div className="mt-4 text-2xl md:text-3xl FilmListHeader">
+                        Episodes
+                    </div>
+                    <div className="md:grid md:grid-cols-3">
                         {data.films.map((film) => {
                             return <FilmListItem key={film.id} film={film} />;
                         })}
-                    </ul>
+                    </div>
                 </div>
             )}
         </div>

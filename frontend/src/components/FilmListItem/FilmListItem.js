@@ -11,10 +11,10 @@ const FilmListItem = ({ film }) => {
     };
 
     return (
-        <li className="FilmListItem" onClick={handleOpenFilm}>
-            <h3>{film.title}</h3>
+        <div className="m-2 mb-4 cursor-pointer" onClick={handleOpenFilm}>
+            <h3 className="p-4 text-xl font-bold">{film.title}</h3>
             <Picture src={film.cover} size="big" />
-        </li>
+        </div>
     );
 };
 

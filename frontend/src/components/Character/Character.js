@@ -7,6 +7,7 @@ import BackButton from "../BackButton/BackButton";
 import Spinner from "../Spinner/Spinner";
 import FavoriteStar from "../FavoriteStar/FavoriteStar";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import StorageHelper from "../../helpers/storage";
 
 const Character = () => {
     let params = useParams();
@@ -15,9 +16,12 @@ const Character = () => {
         variables: { id: parseInt(params.characterId) },
     });
 
-    const markAsFavorite = () => {
-        //TODO
-        localStorage.setItem("favoritedCharacters", params.characterId + "|");
+    const storeName = "characters";
+
+    const onFavClick = (isFavorite) => {
+        isFavorite
+            ? StorageHelper.addElement(params.characterId, storeName)
+            : StorageHelper.deleteElement(params.characterId, storeName);
     };
 
     return loading ? (
@@ -26,7 +30,13 @@ const Character = () => {
         <ErrorMessage>Server error</ErrorMessage>
     ) : (
         <div>
-            <FavoriteStar onFavClick={markAsFavorite} />
+            <FavoriteStar
+                initialValue={StorageHelper.isFavorited(
+                    params.characterId,
+                    storeName
+                )}
+                onFavClick={onFavClick}
+            />
             <h3>{data.character.name}</h3>
             <p>{data.character.gender}</p>
             <BackButton />

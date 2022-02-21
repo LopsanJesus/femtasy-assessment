@@ -7,7 +7,7 @@ const BackButton = () => {
 
     return (
         <button
-            className="sticky bottom-0 w-4/5 py-1 mt-10 font-bold bg-gray-200 rounded-md md:w-1/2"
+            className="sticky bottom-0 w-4/5 py-1 mt-10 font-bold rounded-md bg-back md:w-1/2"
             onClick={() => navigate(-1)}
         >
             Back

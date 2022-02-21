@@ -1,7 +1,3 @@
-@import "~bootstrap/scss/bootstrap";
-@import "custom";
-@import "styles/variables.scss";
-
 @font-face {
     font-family: "Starjedi";
     src: local("Starjedi"), url("./fonts/Starjedi.ttf");
@@ -13,7 +9,7 @@
 }
 
 body {
-    background-color: lightblue;
+    background-color: #73696d;
 }
 
 .App {
@@ -21,7 +17,7 @@ body {
 }
 
 .App-header {
-    background-color: $mainColor;
+    background-color: #282c34;
     padding: 1em;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     font-family: "Starjedi";

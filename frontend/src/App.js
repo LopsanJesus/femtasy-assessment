@@ -22,9 +22,11 @@ const client = new ApolloClient({
 function App() {
     return (
         <ApolloProvider client={client}>
-            <div className="App">
+            <div className="App bg-secondary">
                 <Router>
-                    <h1 className="App-header">STAR WARS</h1>
+                    <h1 className="text-3xl md:text-4xl App-header">
+                        STAR WARS
+                    </h1>
                     <div className="content">
                         <Routes>
                             <Route path="/" element={<FilmList />} />
