@@ -9,7 +9,9 @@ async function startServer(server) {
 
     await server.start();
     server.applyMiddleware({ app });
-    await new Promise((resolve) => httpServer.listen({ port: port }, resolve));
+    await new Promise((resolve) =>
+        httpServer.listen({ port: process.env.PORT || port }, resolve)
+    );
     console.log(`Serving at port ${port}...`);
 }
 
