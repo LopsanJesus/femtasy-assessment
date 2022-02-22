@@ -4,8 +4,8 @@ module.exports = {
         extend: {},
         colors: {
             primary: "#282c34",
-            secondary: "#a7a2a3",
-            back: "#dedce5",
+            secondary: "#dad8d8",
+            backbutton: "#aca7be",
             star: "#FDCC0D",
         },
     },

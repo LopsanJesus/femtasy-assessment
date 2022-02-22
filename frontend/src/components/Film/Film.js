@@ -53,7 +53,7 @@ const Film = () => {
                     <p className="film-description">{data.film.description}</p>
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-1 mt-4 md:grid-cols-6">
+            <div className="grid grid-cols-3 mt-4 gap-y-4 md:grid-cols-6">
                 {data.film.characters.map((character) => {
                     return (
                         <CharacterListItem
