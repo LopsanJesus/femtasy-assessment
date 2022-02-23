@@ -1,3 +1,7 @@
+// Script for React components createOperation
+
+// Use: "node cc [componentName]"
+
 const { exec } = require("child_process");
 
 var command = "npx crcf src/components/" + process.argv[2] + " -f -s";

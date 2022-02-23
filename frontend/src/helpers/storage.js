@@ -1,3 +1,5 @@
+// Helper for the easy management of the local storage
+
 const separator = "|";
 
 const getStoredArray = (key) => {
