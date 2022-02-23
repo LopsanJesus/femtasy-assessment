@@ -64,8 +64,8 @@ const Character = () => {
                         <p>
                             Birth year: {data.character.description.birthYear}
                         </p>
-                        <p>Height: {data.character.description.height}cm</p>
-                        <p>Weight: {data.character.description.mass}kg</p>
+                        <p>Height: {data.character.description.height} cm</p>
+                        <p>Weight: {data.character.description.mass} kg</p>
                         <p>
                             Skin color: {data.character.description.skinColor}
                         </p>
