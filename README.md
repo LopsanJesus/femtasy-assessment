@@ -73,8 +73,23 @@ So now, we will have our client working on http://localhost:3000/.
 
 ## Testing
 
-In order to test the project, you can run in both `frontend` and `server` the followind command:
+In order to test the GraphQL responses of our server, we can simply run:
 
 ```sh
+# Server prompt
 npm test
+```
+
+To run the React components tests:
+
+```sh
+# Frontend prompt
+npm test
+```
+
+And for the integration tests, you can run with the following:
+
+```sh
+# Frontend prompt
+npm run cypress
 ```
