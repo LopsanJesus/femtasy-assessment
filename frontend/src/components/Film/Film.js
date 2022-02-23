@@ -13,9 +13,10 @@ import StorageHelper from "../../helpers/storage";
 
 const Film = () => {
     let params = useParams();
+    let filmId = !isNaN(parseInt(params.filmId)) ? parseInt(params.filmId) : 1;
 
     const { loading, error, data } = useQuery(GET_FILM, {
-        variables: { id: parseInt(params.filmId) },
+        variables: { id: filmId },
     });
 
     const storeName = "films";
@@ -31,7 +32,7 @@ const Film = () => {
     ) : error ? (
         <ErrorMessage>Server error</ErrorMessage>
     ) : (
-        <div className="Film">
+        <div className="m-4 Film">
             <div className="relative z-10 float-right mr-4 md:mr-10">
                 <FavoriteStar
                     initialValue={StorageHelper.isFavorited(
@@ -41,7 +42,7 @@ const Film = () => {
                     onFavClick={onFavClick}
                 />
             </div>
-            <h3 className="m-4 text-3xl font-bold drop-shadow-md">
+            <h3 className="m-4 text-3xl font-bold film-title drop-shadow-md">
                 {data.film.title}
             </h3>
             <div className="md:grid md:grid-cols-2">
@@ -53,7 +54,7 @@ const Film = () => {
                     <p className="film-description">{data.film.description}</p>
                 </div>
             </div>
-            <div className="grid grid-cols-3 mt-4 gap-y-4 md:grid-cols-6">
+            <div className="grid grid-cols-3 mt-4 CharacterListContent gap-y-4 md:grid-cols-6">
                 {data.film.characters.map((character) => {
                     return (
                         <CharacterListItem

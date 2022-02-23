@@ -10,7 +10,7 @@ const FavoriteStar = ({ initialValue, onFavClick }) => {
     };
     return (
         <div
-            className="text-3xl cursor-pointer md:text-6xl"
+            className="text-3xl cursor-pointer favorite-star md:text-6xl"
             onClick={markAsFavorite}
         >
             {isFavorite ? (

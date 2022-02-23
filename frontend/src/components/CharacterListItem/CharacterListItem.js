@@ -12,7 +12,7 @@ const CharacterListItem = ({ character }) => {
 
     return (
         <div className="cursor-pointer" onClick={handleOpenCharacter}>
-            <span className="font-bold">{character.name}</span>
+            <span className="my-4 font-bold">{character.name}</span>
             <Picture src={character.picture} size="small" />
         </div>
     );

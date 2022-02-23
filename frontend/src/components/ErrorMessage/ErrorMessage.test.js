@@ -3,8 +3,10 @@ import { shallow } from "enzyme";
 import ErrorMessage from "./ErrorMessage";
 
 describe("ErrorMessage", () => {
-    test("matches snapshot", () => {
-        // const wrapper = shallow(<ErrorMessage />);
-        // expect(wrapper).toMatchSnapshot();
+    const errorMessage = "Error message";
+
+    test("display error message", () => {
+        const wrapper = shallow(<ErrorMessage>{errorMessage}</ErrorMessage>);
+        expect(wrapper.text()).toBe(errorMessage);
     });
 });
